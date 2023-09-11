@@ -9,7 +9,7 @@ function App() {
       title: "Toilet paper",
       amount: 88.58,
       date: new Date(2020, 7, 12),
-      LocationOfExpenditure: "Dmart usa",
+      LocationOfExpenditure: "Dmart Usa",
     },
   ];
   return (
