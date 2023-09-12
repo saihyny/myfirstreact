@@ -1,6 +1,10 @@
 import "./Expens.css";
 import ExpenseDate from "./ExpenseDate";
 import ExpenseDetails from "./ExpenseDetails";
+const deleteHandler =()=>{
+  console.log('clicked')
+  
+}
 const Expensitem=(props)=> {
   return (
     <div className="expense-item">
@@ -10,6 +14,7 @@ const Expensitem=(props)=> {
         location={props.location}
         title={props.title}
       />
+      <button onClick={deleteHandler}>DeleteExpens</button>
     </div>
   );
 }
