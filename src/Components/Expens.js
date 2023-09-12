@@ -1,7 +1,7 @@
 import "./Expens.css";
 import ExpenseDate from "./ExpenseDate";
 import ExpenseDetails from "./ExpenseDetails";
-function Expensitem(props) {
+const Expensitem=(props)=> {
   return (
     <div className="expense-item">
       <ExpenseDate date={props.date} />
@@ -14,3 +14,4 @@ function Expensitem(props) {
   );
 }
 export default Expensitem;
+
