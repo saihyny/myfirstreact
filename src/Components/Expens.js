@@ -1,22 +1,24 @@
+import React, { useState } from "react";
 import "./Expens.css";
 import ExpenseDate from "./ExpenseDate";
-import ExpenseDetails from "./ExpenseDetails";
-const deleteHandler =()=>{
-  console.log('clicked')
-  
-}
-const Expensitem=(props)=> {
+
+const Expensitem = (props) => {
+  const [amount, newTitle] = useState(props.amount);
+  const deleteHandler = () => {
+    
+    newTitle(100);
+    
+  };
   return (
     <div className="expense-item">
       <ExpenseDate date={props.date} />
-      <ExpenseDetails
-        amount={props.amount}
-        location={props.location}
-        title={props.title}
-      />
+      <div className="expense-item__description">
+        <h2>{props.title}</h2>
+        <h2>{props.location}</h2>
+        <div className="expense-item__price">${amount}</div>
+      </div>
       <button onClick={deleteHandler}>DeleteExpens</button>
     </div>
   );
-}
+};
 export default Expensitem;
-
