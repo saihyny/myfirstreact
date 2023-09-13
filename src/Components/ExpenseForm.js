@@ -1,24 +1,32 @@
-import React, { useState } from "react";
-import "./Expens.css";
-import ExpenseDate from "./ExpenseDate";
-const ExpenseForm = (props) => {
-    const [amount, newTitle] = useState(props.amount);
-    const deleteHandler = () => {
-      
-      newTitle(100);
-      
-    };
-    return (
-        <div>
-      <div className="expense-item">
-        <ExpenseDate date={props.date} />
-        <div className="expense-item__description">
-          <h2>{props.title}</h2>
-          <div className="expense-item__price">${amount}</div>
+import React from "react";
+import "./ExpensesForm.css";
+const ExpenseForm = () => {
+  const DeleteHandler=(event)=>{
+      console.log(event.target.value)
+  };
+
+  return (
+    
+    <form>
+      <div className="new-expense__controls">
+        <div className="new-expense__control-label">
+          <label>title</label>
+          <input type="text" onChange={DeleteHandler} />
+        </div>
+        <div className="new-expense__control-label">
+          <label >amount</label>
+          <input type="number" min="0.01" step="0.01" />
+        </div>
+        <div className="new-expense__control-label">
+          <label>Date</label>
+          <input type="date" min="2019-01-01" max="2022-12-31" />
         </div>
       </div>
-      <button onClick={deleteHandler}>Delete</button>
+      <div className="new-expense__actions">
+        <button type="submit" >Add Expense</button>
       </div>
-    );
+    </form>
+  );
 };
+
 export default ExpenseForm;

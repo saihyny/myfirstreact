@@ -1,8 +1,8 @@
-// import Expensitem from "./Components/Expens";
-import ExpenseForm from "./Components/ExpenseForm";
+import Expensitem from "./Components/Expens";
+import NewExpenses from "./Components/NewExpenses";
 import "./App.css";
 
-const App = () => {
+const App=()=> {
   const expense = [
     {
       id: "e1",
@@ -34,15 +34,11 @@ const App = () => {
     },
   ];
   return (
+    
     <div>
-      <h2>Expense items</h2>
-      <ExpenseForm
-        title={expense[0].title}
-        amount={expense[0].amount}
-        date={expense[0].date}
-        location={expense[0].LocationOfExpenditure}
-      ></ExpenseForm>
-      {/* <Expensitem
+      <NewExpenses></NewExpenses>
+     
+      <Expensitem
         title={expense[0].title}
         amount={expense[0].amount}
         date={expense[0].date}
@@ -65,9 +61,9 @@ const App = () => {
         amount={expense[3].amount}
         date={expense[3].date}
         location={expense[3].LocationOfExpenditure}
-      ></Expensitem> */}
+      ></Expensitem>
     </div>
   );
-};
+}
 
 export default App;
