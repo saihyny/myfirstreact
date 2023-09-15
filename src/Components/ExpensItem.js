@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import "./Expens.css";
+// import './Card.css'
+// import Card from "./Card";
 import ExpenseDate from "./ExpenseDate";
 
-const Expensitem = (props) => {
+const ExpensItem = (props) => {
   const [amount, newTitle] = useState(props.amount);
   const deleteHandler = () => {
     
@@ -21,4 +23,4 @@ const Expensitem = (props) => {
     </div>
   );
 };
-export default Expensitem;
+export default ExpensItem;
