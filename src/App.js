@@ -1,5 +1,6 @@
-import Expensitem from "./Components/Expens";
+
 import NewExpenses from "./Components/NewExpenses";
+import Expenses from "./Components/Expenses";
 import "./App.css";
 
 const App=()=> {
@@ -33,35 +34,24 @@ const App=()=> {
       LocationOfExpenditure: "Dmart Usa",
     },
   ];
+ 
+
+  
+  const SaveData =(props)=>{
+   
+    const values = {
+      ...props,
+    }
+    console.log(values)
+
+  }
+
+ 
   return (
     
     <div>
-      <NewExpenses></NewExpenses>
-     
-      <Expensitem
-        title={expense[0].title}
-        amount={expense[0].amount}
-        date={expense[0].date}
-        location={expense[0].LocationOfExpenditure}
-      ></Expensitem>
-      <Expensitem
-        title={expense[1].title}
-        amount={expense[1].amount}
-        date={expense[1].date}
-        location={expense[1].LocationOfExpenditure}
-      ></Expensitem>
-      <Expensitem
-        title={expense[2].title}
-        amount={expense[2].amount}
-        date={expense[2].date}
-        location={expense[2].LocationOfExpenditure}
-      ></Expensitem>
-      <Expensitem
-        title={expense[3].title}
-        amount={expense[3].amount}
-        date={expense[3].date}
-        location={expense[3].LocationOfExpenditure}
-      ></Expensitem>
+     <NewExpenses OnSaveData={SaveData}></NewExpenses>
+     <Expenses items={expense}></Expenses>
     </div>
   );
 }

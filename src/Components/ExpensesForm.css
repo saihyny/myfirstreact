@@ -4,9 +4,8 @@
   margin: 2rem auto;
   width: 50rem;
   max-width: 95%;
-  border-radius: 12px;
   text-align: center;
-  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.25);
+ 
 }
 
 .new-expense button {
@@ -48,6 +47,7 @@
   font-weight: bold;
   margin-bottom: 0.5rem;
   display: block;
+  
 }
 
 .new-expense__control-input {
@@ -57,6 +57,8 @@
   border: 1px solid #ccc;
   width: 20rem;
   max-width: 100%;
+  
+  
 }
 
 .new-expense__actions {
