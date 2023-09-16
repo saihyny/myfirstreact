@@ -2,11 +2,11 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0 2px 8px rgba(14, 4, 4, 0.25);
+    box-shadow: 0 2px 8px rgba(150, 193, 42, 0.25);
     padding: 0.5rem;
     margin: 1rem 0;
     border-radius: 12px;
-    background-color: #3678cf;
+    background-color: #1458b1;
   }
   
   .expense-item__description {
@@ -59,7 +59,7 @@
     }
   }
   .card {
-    width: 800px; /* Adjust the width as needed */
+    width: 700px; /* Adjust the width as needed */
     padding: 20px;
     text-align: center; /* Center the text horizontally */
     background-color: #2cd2d8;
