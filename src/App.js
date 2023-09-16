@@ -2,48 +2,26 @@
 import NewExpenses from "./Components/NewExpenses";
 import Expenses from "./Components/Expenses";
 import "./App.css";
+import React,{useState} from "react";
 
+const expense = [
+  {
+    id: "e1",
+    title: "Toilet paper",
+    amount: 88.58,
+    date: new Date(2020, 7, 12),
+  },
+];
 const App=()=> {
-  const expense = [
-    {
-      id: "e1",
-      title: "Toilet paper",
-      amount: 88.58,
-      date: new Date(2020, 7, 12),
-      LocationOfExpenditure: "Dmart Usa",
-    },
-    {
-      id: "e1",
-      title: "Toilet paper",
-      amount: 88.58,
-      date: new Date(2020, 7, 12),
-      LocationOfExpenditure: "Dmart Usa",
-    },
-    {
-      id: "e1",
-      title: "Toilet paper",
-      amount: 88.58,
-      date: new Date(2020, 7, 12),
-      LocationOfExpenditure: "Dmart Usa",
-    },
-    {
-      id: "e1",
-      title: "Toilet paper",
-      amount: 88.58,
-      date: new Date(2020, 7, 12),
-      LocationOfExpenditure: "Dmart Usa",
-    },
-  ];
+const [onExpenses,Setexpenses] =useState(expense)
  
 
   
   const SaveData =(props)=>{
-   
-    const values = {
-      ...props,
-    }
-    console.log(values)
-
+    Setexpenses((previos)=>
+    {
+      return [props, ...previos]
+    } )
   }
 
  
@@ -51,7 +29,7 @@ const App=()=> {
     
     <div>
      <NewExpenses OnSaveData={SaveData}></NewExpenses>
-     <Expenses items={expense}></Expenses>
+     <Expenses items={onExpenses}></Expenses>
     </div>
   );
 }
