@@ -9,9 +9,23 @@ const Expenses = (props) => {
   const FilterChangeHandler = (Year) => {
     SetFilterYear(Year);
   };
-const Expensefil = props.items.filter((year)=>{
-  return year.date.getFullYear().toString()===FilterdYear
-})
+  const Expensefil = props.items.filter((year) => {
+    return year.date.getFullYear().toString() === FilterdYear;
+  });
+
+  let checkExpense = <p>there is no element here</p>;
+  console.log(Expensefil.length);
+
+  if (Expensefil.length > 0) {
+    checkExpense = Expensefil.map((expenses) => (
+      <ExpensItem
+        key={expenses.id}
+        title={expenses.title}
+        amount={expenses.amount}
+        date={expenses.date}
+      ></ExpensItem>
+    ));
+  }
 
   return (
     <div className="card">
@@ -19,15 +33,12 @@ const Expensefil = props.items.filter((year)=>{
         selected={FilterdYear}
         OnChangeFilter={FilterChangeHandler}
       ></ExpenseFilter>
-
-      {Expensefil.map((expenses) => (
-        <ExpensItem
-          key={expenses.id}
-          title={expenses.title}
-          amount={expenses.amount}
-          date={expenses.date}
-        ></ExpensItem>
-      ))}
+      {checkExpense}
+      {Expensefil.length === 1 ? 
+       (<p> "Only single Expense here. Please add more...</p>) 
+       : ('')
+        
+      }
     </div>
   );
 };
