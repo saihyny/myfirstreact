@@ -2,6 +2,7 @@ import ExpensItem from "./ExpensItem";
 import "./Expens.css";
 import ExpenseFilter from "./ExpenseFilter";
 import React, { useState } from "react";
+import './Fil.css'
 // import Card from "./Card";
 const Expenses = (props) => {
   const [FilterdYear, SetFilterYear] = useState("2020");
@@ -13,8 +14,9 @@ const Expenses = (props) => {
     return year.date.getFullYear().toString() === FilterdYear;
   });
 
-  let checkExpense = <p>there is no element here</p>;
-  console.log(Expensefil.length);
+  let checkExpense = <h1 className="filter">There is no 
+  Expenses here</h1>;
+ 
 
   if (Expensefil.length > 0) {
     checkExpense = Expensefil.map((expenses) => (

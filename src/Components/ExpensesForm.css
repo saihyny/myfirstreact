@@ -1,10 +1,15 @@
 .new-expense {
-  background-color: #a892ee;
-  padding: 1rem;
-  margin: 2rem auto;
-  width: 50rem;
-  max-width: 90%;
+  /* background-color: #a892ee; */
+  width: 700px; /* Adjust the width as needed */
+  padding: 20px;
+  text-align: center; /* Center the text horizontally */
+  background-color: #d4de12;
+  border: 1px solid #377e04;
+  border-radius: 8px;
   text-align: center;
+  margin: 0 auto;
+  margin-bottom: 20px auto;
+  margin-top: 20px auto;
  
 }
 
