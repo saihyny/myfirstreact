@@ -11,6 +11,24 @@ const expense = [
     amount: 88.58,
     date: new Date(2020, 7, 12),
   },
+  {
+    id: "e2",
+    title: "laptop",
+    amount: 50.58,
+    date: new Date(2020, 8, 12),
+  },
+  {
+    id: "e3",
+    title: "shoes",
+    amount: 30.58,
+    date: new Date(2020, 6, 12),
+  },
+  {
+    id: "e4",
+    title: "bag",
+    amount: 20.58,
+    date: new Date(2020, 10, 12),
+  },
 ];
 const App=()=> {
 const [onExpenses,Setexpenses] =useState(expense)

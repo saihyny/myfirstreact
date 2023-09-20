@@ -3,6 +3,7 @@ import "./Expens.css";
 import ExpenseFilter from "./ExpenseFilter";
 import React, { useState } from "react";
 import './Fil.css'
+import ExpensesChart from "./ExpensesChart";
 // import Card from "./Card";
 const Expenses = (props) => {
   const [FilterdYear, SetFilterYear] = useState("2020");
@@ -31,16 +32,14 @@ const Expenses = (props) => {
 
   return (
     <div className="card">
+      
       <ExpenseFilter
         selected={FilterdYear}
         OnChangeFilter={FilterChangeHandler}
       ></ExpenseFilter>
+      <ExpensesChart expenses={Expensefil}></ExpensesChart>
       {checkExpense}
-      {Expensefil.length === 1 ? 
-       (<p> "Only single Expense here. Please add more...</p>) 
-       : ('')
-        
-      }
+      
     </div>
   );
 };
