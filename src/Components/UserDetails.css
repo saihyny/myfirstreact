@@ -1,0 +1,10 @@
+.Userdetails {
+        text-align: center;
+        border-radius: 12px;
+        padding-top: 12px;
+        background-color: blueviolet;
+        color: rgb(219, 229, 229);
+        width: 50rem;
+        margin: auto;
+        margin-top: 5%;
+}

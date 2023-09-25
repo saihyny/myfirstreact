@@ -1,0 +1,37 @@
+.UserInterFace {
+    text-align: center;
+    border-radius: 12px;
+    padding-top: 12px;
+    background-color: blueviolet;
+    color: azure;
+    width: 50rem;
+    margin: auto;
+    margin-top: 5%;
+}
+.UserInterFace button {
+    font: inherit;
+    border: 1px solid #4f005f;
+    background: #4f005f;
+    color: white;
+    padding: 0.25rem 1rem;
+    cursor: pointer;
+  }
+  
+  .UserInterFace button:hover,
+  .UserInterFace button:active {
+    background: #741188;
+    border-color: #741188;
+  }
+  
+  .UserInterFace button:focus {
+    outline: none;
+  }
+  
+.UserInterFace input{
+    background-color: rgb(136, 234, 234);
+    color: black;
+    border: 2px solid ;
+    padding: auto;
+    font-size: 16px;
+    border-radius: 10px;
+}
