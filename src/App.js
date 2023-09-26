@@ -1,37 +1,23 @@
-
-import NewExpenses from "./Components/NewExpenses";
-import Expenses from "./Components/Expenses";
+import UserInterFace from "./Components/UserInterFace";
 import "./App.css";
-import React,{useState} from "react";
+import React, { useState } from "react";
+import UserDetails from "./Components/UserDetails";
 
-const expense = [
-  {
-    id: "e1",
-    title: "Toilet paper",
-    amount: 88.58,
-    date: new Date(2020, 7, 12),
-  },
-];
-const App=()=> {
-const [onExpenses,Setexpenses] =useState(expense)
- 
+const App = () => {
+  const [EnterdUsers, SetUsers] = useState([]);
 
-  
-  const SaveData =(props)=>{
-    Setexpenses((previos)=>
-    {
-      return [props, ...previos]
-    } )
-  }
+  const ChangingUsers = (Uname,Uage) => {
+    SetUsers((previosUsers) => {
+      return [...previosUsers, {name:Uname, age:Uage,id: Math.random.toString()} ];
+    });
+  };
 
- 
   return (
-    
     <div>
-     <NewExpenses OnSaveData={SaveData}></NewExpenses>
-     <Expenses items={onExpenses}></Expenses>
+      <UserInterFace onChangeUsers={ChangingUsers}></UserInterFace>
+      <UserDetails users={EnterdUsers}></UserDetails>
     </div>
   );
-}
+};
 
 export default App;
