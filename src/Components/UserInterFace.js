@@ -1,39 +1,36 @@
 import './UserInterFace.css'
-import React,{useState} from 'react'
+import React,{useState,useRef} from 'react'
 import ErrorMessege from './ErrorMessege';
 import './ErrorMessege.css'
 const UserInterFace =(props)=>
 {
-    const [EnterdUsername, setEnterdUsername] = useState('');
-    const [EnterdAge, setEnterdAge] = useState('');
+    const EnterdUsername1=useRef()
+    const EnterdUserAge1=useRef()
+    const EnterdUserCollege1=useRef()
+  
     const [error1 , setError] = useState()
 
-const UserNameChangeHandler=(event)=>{
-setEnterdUsername(event.target.value)
-}   
-const AgechangeHandler=(event)=>{
-setEnterdAge(event.target.value)
-}
+
 
 
 const addUserHandler =(event)=>{ 
  event.preventDefault();
-  if(EnterdUsername.trim().length===0 || EnterdAge.length===0)
+  if(EnterdUsername1.current.value.length===0 || EnterdUserAge1.length===0)
   {
     setError({title:'invalid input', messege:'please enter correct input'})
     return;
   }
-if(+EnterdAge < 21)
+if(EnterdUserAge1.current.value < 21)
 {
     setError({title:'invalid age', messege:'pakka kelli adukoamma 😁🤣'})
     return;
 }
 
-props.onChangeUsers(EnterdUsername,EnterdAge)
-setEnterdUsername('')
-setEnterdAge('')
- 
-  
+props.onChangeUsers(EnterdUsername1.current.value,EnterdUserAge1.current.value,EnterdUserCollege1.current.value)
+EnterdUsername1.current.value=''
+EnterdUserAge1.current.value=''
+EnterdUserCollege1.current.value='' 
+
 }
 const errorHandler =()=>{
     setError(null)
@@ -47,9 +44,11 @@ const errorHandler =()=>{
         <form className='UserInterFace' onSubmit={addUserHandler}>
        
             <label htmlFor='username'>UserName</label> 
-            <input type="text" id="name" onChange={UserNameChangeHandler}value={EnterdUsername}></input>
+            <input type="text" id="name" ref={EnterdUsername1} ></input>
             <label htmlFor='age'> Age (years) </label>
-            <input type="number" id="age" onChange={AgechangeHandler}  value={EnterdAge} ></input>
+            <input type="number" id="age"  ref={EnterdUserAge1}  ></input>
+            <label htmlFor='username'> college </label>
+            <input type="text" id="college" ref={EnterdUserCollege1}   ></input>
             <button type='submit'>Submit</button>
             <br></br>
             <br></br>

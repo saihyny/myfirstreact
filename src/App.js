@@ -6,9 +6,10 @@ import UserDetails from "./Components/UserDetails";
 const App = () => {
   const [EnterdUsers, SetUsers] = useState([]);
 
-  const ChangingUsers = (Uname,Uage) => {
+  const ChangingUsers = (Uname,Uage,Ucollege) => {
     SetUsers((previosUsers) => {
-      return [...previosUsers, {name:Uname, age:Uage,id: Math.random.toString()} ];
+      return [...previosUsers, {name:Uname, college:Ucollege ,
+        age:Uage,id: Math.random.toString()}];
     });
   };
 
