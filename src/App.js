@@ -19,8 +19,11 @@ function App() {
 
   return (
    
-      <CreateCtx.Provider value={{isLoggedIn:isLoggedIn}}>
-      <MainHeader  onLogout={logoutHandler} />
+      <CreateCtx.Provider value={
+        {isLoggedIn:isLoggedIn,
+          onLogout:logoutHandler
+        }}>
+      <MainHeader/>
       <main>
         {!isLoggedIn && <Login onLogin={loginHandler} />}
         {isLoggedIn && <Home onLogout={logoutHandler} />}
