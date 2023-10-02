@@ -2,7 +2,7 @@ import React, { useState, useEffect, useReducer } from "react";
 import Card from "../UI/Card/Card";
 import classes from "./Login.module.css";
 import Button from "../UI/Button/Button";
-
+import InputComponent from "../UI/InputCom";
 const EmailRenderFn = (state, action) => {
   if (action.type === "inputEmail") {
     return { value: action.val, isValid: action.val.includes("@") };
@@ -24,12 +24,7 @@ const PasswordRenderFn = (state,action) => {
   return { value: "", isValid: false };
 }
 const Login = (props) => {
-  // const [enteredEmail, setEnteredEmail] = useState('');
-  // const [emailIsValid, setEmailIsValid] = useState();
-  const [enteredCollege, setEnteredCollege] = useState("");
-  const [collegeisValid, setCollegeIsValid] = useState();
-  // const [enteredPassword, setEnteredPassword] = useState("");
-  // const [passwordIsValid, setPasswordIsValid] = useState();
+  
   const [formIsValid, setFormIsValid] = useState(false);
 
   const [RenderEmail, SetRenderEmail] = useReducer(EmailRenderFn, {
@@ -40,13 +35,13 @@ const Login = (props) => {
     value: "",
     isValid: null,
   });
+  
   useEffect(() => {
     setFormIsValid(
       RenderEmail.isValid &&
-        RenderPassword.isValid &&
-        enteredCollege.trim().length > 0
+        RenderPassword.isValid 
     );
-  }, [RenderEmail, RenderPassword, enteredCollege]);
+  }, [RenderEmail, RenderPassword]);
 
   const emailChangeHandler = (event) => {
     SetRenderEmail({ type: "inputEmail", val: event.target.value });
@@ -54,14 +49,6 @@ const Login = (props) => {
 
   const validateEmailHandler = () => {
     SetRenderEmail({ type: "validEmail" });
-  };
-
-  const collegeChangeHandler = (event) => {
-    setEnteredCollege(event.target.value);
-  };
-
-  const validateCollegeHandler = () => {
-    setCollegeIsValid(enteredCollege.trim().length > 0);
   };
 
   const passwordChangeHandler = (event) => {
@@ -74,54 +61,38 @@ const Login = (props) => {
 
   const submitHandler = (event) => {
     event.preventDefault();
-    props.onLogin(RenderEmail.value, RenderPassword.value, enteredCollege);
+    props.onLogin(RenderEmail.value, RenderPassword.value);
   };
 
   return (
     <Card className={classes.login}>
       <form onSubmit={submitHandler}>
-        <div
-          className={`${classes.control} ${
-            RenderEmail.isValid === false ? classes.invalid : ""
-          }`}
-        >
-          <label htmlFor="email">E-Mail</label>
-          <input
-            type="email"
-            id="email"
-            value={RenderEmail.value}
-            onChange={emailChangeHandler}
-            onBlur={validateEmailHandler}
-          />
+       
+        <div>
+          <InputComponent
+          id='email'
+          label='E-mail'
+          type='email'
+          isValid={RenderEmail.isValid}
+          value={RenderEmail.value}
+          onChange={emailChangeHandler}
+          onBlur={validateEmailHandler}
+          >
+          </InputComponent>
         </div>
-        <div
-          className={`${classes.control} ${
-            collegeisValid === false ? classes.invalid : ""
-          }`}
-        >
-          <label htmlFor="email">College</label>
-          <input
-            type="text"
-            id="collegeName"
-            value={enteredCollege}
-            onChange={collegeChangeHandler}
-            onBlur={validateCollegeHandler}
-          />
+        <div>
+          <InputComponent
+          id='password'
+          label='password'
+          type='Password'
+          isValid={RenderPassword.isValid}
+          value={RenderPassword.value}
+          onChange={passwordChangeHandler}
+          onBlur={validatePasswordHandler}
+          >
+          </InputComponent>
         </div>
-        <div
-          className={`${classes.control} ${
-            RenderPassword.isValid === false ? classes.invalid : ""
-          }`}
-        >
-          <label htmlFor="password">Password</label>
-          <input
-            type="password"
-            id="password"
-            value={RenderPassword.value}
-            onChange={passwordChangeHandler}
-            onBlur={validatePasswordHandler}
-          />
-        </div>
+
         <div className={classes.actions}>
           <Button type="submit" className={classes.btn} disabled={!formIsValid}>
             Login
